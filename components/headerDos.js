@@ -1,24 +1,30 @@
 import React from 'react';
-import {StyleSheet, Text, View, Image} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  ImageBackground,
+  SafeAreaView,
+} from 'react-native';
 import {Dimensions} from 'react-native';
 
 export default function headerDos({title}) {
   return (
-    <View style={styles.header}>
+    <SafeAreaView style={styles.header}>
       <View style={styles.headerTitle}>
-        <Image
-          source={require('../assets/laneta-logo.png')}
-          style={styles.headerImage}
-        />
-        <Text style={styles.headerText}>{title}</Text>
+        <ImageBackground
+          source={require('../assets/laneta-azul.png')}
+          style={styles.headerImage}>
+          <Text style={styles.headerText}>{title}</Text>
+        </ImageBackground>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   header: {
-    width: Dimensions.get('screen').width,
+    width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-start',
@@ -26,15 +32,14 @@ const styles = StyleSheet.create({
   },
   headerText: {
     fontWeight: '900',
-    fontSize: 30,
-    fontFamily: 'Quicksand-Bold',
-    color: '#333',
+    fontSize: 33,
+    fontFamily: 'iciel Cadena',
+    color: 'white',
     letterSpacing: 1,
     height: '100%',
     alignItems: 'center',
-    justifyContent: 'center',
-    bottom: 2,
-    right: 7,
+    justifyContent: 'flex-start',
+    top: 18,
   },
   headerImage: {
     width: 150,
@@ -42,10 +47,13 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginRight: 10,
     marginTop: 15,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   headerTitle: {
     flexDirection: 'row',
     alignItems: 'center',
-    right: 35,
   },
 });
+
+// Dimensions.get('screen').width
