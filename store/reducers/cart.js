@@ -6,6 +6,7 @@ import {act} from 'react-test-renderer';
 const initialState = {
   items: {},
   totalAmount: 0,
+  count: 0,
 };
 
 export default (state = initialState, action) => {
@@ -32,6 +33,7 @@ export default (state = initialState, action) => {
         ...state,
         items: {...state.items, [addedProduct.id]: updatedOrNewCartItem},
         totalAmount: state.totalAmount + prodPrice,
+        count: state.count + 1,
       };
     case REMOVE_FROM_CART:
       const currentQty = state.items[action.pid.item.productId].quantity;
@@ -61,6 +63,7 @@ export default (state = initialState, action) => {
         items: updatedCartItems,
         totalAmount:
           state.totalAmount - state.items[action.pid.item.productId].price,
+        count: state.count - 1,
       };
     /*case REMOVE_FROM_CART:
       console.log(state.items);

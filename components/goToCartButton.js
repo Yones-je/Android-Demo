@@ -2,6 +2,7 @@ import React from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Platform} from 'react-native';
 import {TouchableOpacity} from 'react-native';
+import Badge from './badge';
 
 const GoToCartButton = ({navigation}) => {
   const goToCart = () => {
@@ -9,6 +10,7 @@ const GoToCartButton = ({navigation}) => {
   };
   return (
     <TouchableOpacity onPress={goToCart}>
+      <Badge />
       <Icon
         name={Platform.OS === 'android' ? 'md-restaurant' : 'ios-cart'}
         size={23}
