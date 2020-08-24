@@ -3,7 +3,6 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Home from '../screens/home';
 import Menu from '../screens/menu';
 import OrderStatus from '../screens/orderStatus';
-import Payment from '../screens/payment';
 import Header from '../components/header';
 import HeaderDos from '../components/headerDos';
 import takeAway from '../screens/takeAway';
@@ -38,6 +37,9 @@ export default function eatHereNavigator({navigation}) {
             headerRight: () => {
               return <GoToCartButton navigation={navigation} />;
             },
+            headerLeft: () => {
+              return <BurgerNavButton navigation={navigation} />;
+            },
             headerTitle: () => <Header navigation={navigation} title="" />,
           };
         }}
@@ -54,6 +56,7 @@ export default function eatHereNavigator({navigation}) {
             headerTitle: () => (
               <HeaderDos navigation={navigation} title="Take Away" />
             ),
+            headerBackTitle: ' ',
           };
         }}
       />
@@ -67,8 +70,9 @@ export default function eatHereNavigator({navigation}) {
               return <GoToCartButton navigation={navigation} />;
             },
             headerTitle: () => (
-              <HeaderDos navigation={navigation} title="Meny" />
+              <HeaderDos navigation={navigation} title="MENY" />
             ),
+            headerBackTitle: ' ',
           };
         }}
       />
@@ -80,6 +84,17 @@ export default function eatHereNavigator({navigation}) {
             headerBackTitleVisible: false,
             headerTitle: () => (
               <HeaderDos navigation={navigation} title="Beställning" />
+            ),
+          };
+        }}
+      />
+      <Stack.Screen
+        name="OrderStatus"
+        component={OrderStatus}
+        options={({navigation}) => {
+          return {
+            headerTitle: () => (
+              <HeaderDos navigation={navigation} title="Orderstatus" />
             ),
           };
         }}
