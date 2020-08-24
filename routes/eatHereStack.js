@@ -9,6 +9,7 @@ import HeaderDos from '../components/headerDos';
 import takeAway from '../screens/takeAway';
 import GoToCartButton from '../components/goToCartButton';
 import Cart from '../screens/cart';
+import BurgerNavButton from '../components/burgerNavButton';
 
 const Stack = createStackNavigator();
 
@@ -31,6 +32,9 @@ export default function eatHereNavigator({navigation}) {
         component={Home}
         options={({navigation}) => {
           return {
+            headerLeft: () => {
+              return <BurgerNavButton navigation={navigation} />;
+            },
             headerRight: () => {
               return <GoToCartButton navigation={navigation} />;
             },
@@ -43,6 +47,7 @@ export default function eatHereNavigator({navigation}) {
         component={takeAway}
         options={({navigation}) => {
           return {
+            headerBackTitleVisible: false,
             headerRight: () => {
               return <GoToCartButton navigation={navigation} />;
             },
@@ -57,6 +62,7 @@ export default function eatHereNavigator({navigation}) {
         component={Menu}
         options={({navigation}) => {
           return {
+            headerBackTitleVisible: false,
             headerRight: () => {
               return <GoToCartButton navigation={navigation} />;
             },
@@ -71,6 +77,7 @@ export default function eatHereNavigator({navigation}) {
         component={Cart}
         options={({navigation}) => {
           return {
+            headerBackTitleVisible: false,
             headerTitle: () => (
               <HeaderDos navigation={navigation} title="Beställning" />
             ),
@@ -82,6 +89,7 @@ export default function eatHereNavigator({navigation}) {
         component={Payment}
         options={({navigation}) => {
           return {
+            headerBackTitleVisible: false,
             headerTitle: () => <HeaderDos navigation={navigation} title=" " />,
           };
         }}
@@ -91,8 +99,12 @@ export default function eatHereNavigator({navigation}) {
         component={OrderStatus}
         options={({navigation}) => {
           return {
+            headerLeft: () => {
+              return <BurgerNavButton navigation={navigation} />;
+            },
+            headerBackTitleVisible: false,
             headerTitle: () => (
-              <HeaderDos navigation={navigation} title="Orderstatus" />
+              <HeaderDos navigation={navigation} title="Status" />
             ),
           };
         }}

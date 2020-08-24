@@ -11,7 +11,7 @@ export default function ImageButton(props) {
           style={styles.image}
         />
         <Text style={styles.text}>{props.title}</Text>
-        <Icon name="ios-arrow-forward" size={50} style={styles.icon} />
+        <Icon name="ios-chevron-forward" size={50} style={styles.icon} />
       </Pressable>
     </View>
   );

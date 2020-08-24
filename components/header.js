@@ -1,5 +1,11 @@
 import React from 'react';
-import {StyleSheet, Text, View, Image, ImageBackground} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  ImageBackground,
+  SafeAreaView,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Dimensions} from 'react-native';
 
@@ -8,19 +14,21 @@ export default function header({navigation, title}) {
     navigation.openDrawer();
   };
   return (
-    <View style={styles.header}>
-      <Icon name="ios-menu" size={40} style={styles.icon} onPress={openMenu} />
+    <SafeAreaView style={styles.header}>
       <View style={styles.headerTitle}>
-        <Image source={require('../assets/laneta-logo.png')} style={styles.headerImage} />
+        <ImageBackground
+          source={require('../assets/laneta-logo.png')}
+          style={styles.headerImage}
+        />
         <Text style={styles.headerText}>{title}</Text>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   header: {
-    width: Dimensions.get('screen').width,
+    width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-start',
@@ -39,17 +47,20 @@ const styles = StyleSheet.create({
   icon: {
     position: 'absolute',
     left: 16,
-
   },
   headerImage: {
     width: 150,
     height: 103,
     marginLeft: 60,
-    marginRight: 20,
+    marginRight: 60,
     marginTop: 15,
+    alignSelf: 'center',
   },
   headerTitle: {
     flexDirection: 'row',
-    alignItems: 'center'
-  }
+    alignItems: 'center',
+  },
 });
+
+// Dimensions.get('screen').width
+//  <Icon name="ios-menu" size={40} style={styles.icon} onPress={openMenu} />

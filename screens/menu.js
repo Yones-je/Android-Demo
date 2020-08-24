@@ -18,7 +18,7 @@ export default function Menu() {
         onPress={() => {
           setShowTacos((prevState) => !prevState);
         }}>
-        <Card icon={showTacos ? 'ios-arrow-up' : 'ios-arrow-down'}>
+        <Card icon={showTacos ? 'ios-chevron-up' : 'ios-chevron-forward'}>
           <Text style={styles.cardHeader}>TACOS</Text>
           <View>
             <Text style={styles.cardTitle}>Med dubbel majstortilla</Text>
@@ -31,7 +31,7 @@ export default function Menu() {
         onPress={() => {
           setShowGrande((prevState) => !prevState);
         }}>
-        <Card icon={showGrande ? 'ios-arrow-down' : 'ios-arrow-forward'}>
+        <Card icon={showGrande ? 'ios-chevron-up' : 'ios-chevron-forward'}>
           <Text style={styles.cardHeader}>TACOS GRANDES</Text>
           <View>
             <Text style={styles.cardTitle}>Stor vetetortilla med ost </Text>
@@ -44,19 +44,20 @@ export default function Menu() {
         onPress={() => {
           setShowQuesa((prevState) => !prevState);
         }}>
-        <Card icon={showQuesa ? 'ios-arrow-down' : 'ios-arrow-forward'}>
+        <Card icon={showQuesa ? 'ios-chevron-up' : 'ios-chevron-forward'}>
           <Text style={styles.cardHeader}>QUESADILLAS</Text>
           <Text style={styles.cardTitle}>Mellanstor vetetortilla med ost</Text>
           {showQuesa && <MenuItem data={products[2]} />}
         </Card>
       </Pressable>
       <Pressable
-        style={{marginTop: 5, paddingBottom: 20}}
+        style={{marginTop: 5, padding: 5}}
         onPress={() => {
           setShowXtra((prevState) => !prevState);
         }}>
-        <Card icon={showXtra ? 'ios-arrow-down' : 'ios-arrow-forward'}>
+        <Card icon={showXtra ? 'ios-chevron-up' : 'ios-chevron-forward'}>
           <Text style={styles.cardHeader}>TILLBEHÖR & DRYCK</Text>
+          <Text style={styles.cardTitle}>Totopos, Såser och Dryck</Text>
           {showXtra && <MenuItem data={products[3]} />}
         </Card>
       </Pressable>

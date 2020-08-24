@@ -1,7 +1,7 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Platform} from 'react-native';
-import {TouchableOpacity} from 'react-native';
+import {Pressable} from 'react-native';
 import Badge from './badge';
 
 const GoToCartButton = ({navigation}) => {
@@ -9,7 +9,7 @@ const GoToCartButton = ({navigation}) => {
     navigation.navigate('Cart');
   };
   return (
-    <TouchableOpacity onPress={goToCart}>
+    <Pressable onPress={goToCart}>
       <Badge />
       <Icon
         name={Platform.OS === 'android' ? 'md-restaurant' : 'ios-cart'}
@@ -17,7 +17,7 @@ const GoToCartButton = ({navigation}) => {
         color="deepskyblue"
         style={{padding: 10}}
       />
-    </TouchableOpacity>
+    </Pressable>
   );
 };
 export default GoToCartButton;

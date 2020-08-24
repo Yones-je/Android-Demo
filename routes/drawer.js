@@ -13,7 +13,7 @@ export default function drawerNavigator() {
       <Drawer.Navigator initialRouteName="Home">
         <Drawer.Screen name="Home" component={eatHereNavigator} />
         <Drawer.Screen name="About" component={aboutNavigator} />
-        <Drawer.Screen name="Din Order" component={OrderNavigator} />
+        <Drawer.Screen name="Din Order" component={OrderNavigator}  />
       </Drawer.Navigator>
     </NavigationContainer>
   );

@@ -1,6 +1,5 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Colors from './colors';
 import {Platform} from 'react-native';
 import {TouchableOpacity} from 'react-native';
 
@@ -12,8 +11,8 @@ const BurgerNavButton = ({navigation}) => {
     <TouchableOpacity onPress={burgerNav}>
       <Icon
         name={Platform.OS === 'android' ? 'md-menu' : 'ios-menu'}
-        size={23}
-        color={Platform.OS === 'android' ? 'white' : Colors.primary}
+        size={40}
+        color="black"
         style={{padding: 10}}
       />
     </TouchableOpacity>

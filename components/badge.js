@@ -9,16 +9,14 @@ export default function Badge() {
   if (badgeValue > 0) {
     () => setShowBadge((prevState) => !prevState);
   }
-  if (showBadge) {
-    return (
-      <View style={styles.badgeContainer}>
-        <Text style={styles.badgeText}>{badgeValue}</Text>
-      </View>
-    );
-  } else {
-    return <></>;
-  }
-  /*return (
+
+  return (
+    <View style={styles.badgeContainer}>
+      <Text style={styles.badgeText}>{badgeValue}</Text>
+    </View>
+  );
+}
+/*return (
     <>
       {() =>
         showBadge
@@ -31,12 +29,11 @@ export default function Badge() {
       }
     </>
   );*/
-}
 
 const styles = StyleSheet.create({
   badgeContainer: {
     position: 'absolute',
-    top: -5,
+    top: 3,
     right: 0,
     left: 0,
     bottom: 0,
@@ -48,6 +45,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     zIndex: 2000,
     backgroundColor: 'red',
+    opacity: 0.75,
   },
   badgeText: {
     fontSize: 10,
