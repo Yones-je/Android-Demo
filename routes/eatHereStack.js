@@ -9,6 +9,7 @@ import takeAway from '../screens/takeAway';
 import GoToCartButton from '../components/goToCartButton';
 import Cart from '../screens/cart';
 import BurgerNavButton from '../components/burgerNavButton';
+import Payment from '../screens/payment';
 
 const Stack = createStackNavigator();
 
@@ -31,9 +32,6 @@ export default function eatHereNavigator({navigation}) {
         component={Home}
         options={({navigation}) => {
           return {
-            headerLeft: () => {
-              return <BurgerNavButton navigation={navigation} />;
-            },
             headerRight: () => {
               return <GoToCartButton navigation={navigation} />;
             },
@@ -49,7 +47,6 @@ export default function eatHereNavigator({navigation}) {
         component={takeAway}
         options={({navigation}) => {
           return {
-            headerBackTitleVisible: false,
             headerRight: () => {
               return <GoToCartButton navigation={navigation} />;
             },
@@ -65,7 +62,6 @@ export default function eatHereNavigator({navigation}) {
         component={Menu}
         options={({navigation}) => {
           return {
-            headerBackTitleVisible: false,
             headerRight: () => {
               return <GoToCartButton navigation={navigation} />;
             },
@@ -81,20 +77,8 @@ export default function eatHereNavigator({navigation}) {
         component={Cart}
         options={({navigation}) => {
           return {
-            headerBackTitleVisible: false,
             headerTitle: () => (
-              <HeaderDos navigation={navigation} title="Beställning" />
-            ),
-          };
-        }}
-      />
-      <Stack.Screen
-        name="OrderStatus"
-        component={OrderStatus}
-        options={({navigation}) => {
-          return {
-            headerTitle: () => (
-              <HeaderDos navigation={navigation} title="Orderstatus" />
+              <HeaderDos navigation={navigation} title="Kassa" />
             ),
           };
         }}
@@ -104,8 +88,8 @@ export default function eatHereNavigator({navigation}) {
         component={Payment}
         options={({navigation}) => {
           return {
-            headerBackTitleVisible: false,
-            headerTitle: () => <HeaderDos navigation={navigation} title=" " />,
+            headerTitle: () => <Header navigation={navigation} title=" " />,
+            headerBackTitle: ' ',
           };
         }}
       />
@@ -114,13 +98,8 @@ export default function eatHereNavigator({navigation}) {
         component={OrderStatus}
         options={({navigation}) => {
           return {
-            headerLeft: () => {
-              return <BurgerNavButton navigation={navigation} />;
-            },
-            headerBackTitleVisible: false,
-            headerTitle: () => (
-              <HeaderDos navigation={navigation} title="Status" />
-            ),
+            headerTitle: () => <Header navigation={navigation} title="" />,
+            headerBackTitle: ' ',
           };
         }}
       />

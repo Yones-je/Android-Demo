@@ -1,12 +1,21 @@
 import React, {useState} from 'react';
-import {StyleSheet, View, Text, ScrollView, Pressable} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  ScrollView,
+  Pressable,
+  Button,
+} from 'react-native';
 import Card from '../components/card';
 import MenuItem from '../components/menuItem';
 import {useSelector} from 'react-redux';
 
-export default function Menu() {
+export default function Menu({navigation}) {
   const products = useSelector((state) => state.products.availableProducts);
-
+  const goToCart = () => {
+    navigation.navigate('Cart');
+  };
   const [showTacos, setShowTacos] = useState(false);
   const [showGrande, setShowGrande] = useState(false);
   const [showQuesa, setShowQuesa] = useState(false);
@@ -61,6 +70,7 @@ export default function Menu() {
           {showXtra && <MenuItem data={products[3]} />}
         </Card>
       </Pressable>
+      <Button onPress={goToCart} title="Gå Vidare till Kassan" />
     </ScrollView>
   );
 }
